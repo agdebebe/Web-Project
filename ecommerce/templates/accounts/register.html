@@ -1,0 +1,26 @@
+{% extends 'products/index.html' %}
+{% block title %}Register{% endblock %}
+
+<!-- # /***************************************************************************************
+# # *    Title: <Django registration>
+# # *    Author: <Django>
+# # *    Date: <29 July 2015>
+# # *    Code version: <html>
+# # *    Availability: <https://django-registration.readthedocs.io/en/2.0.4/quickstart.html>
+# # *   Edited by:
+# # ***************************************************************************************/ -->
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container mt-5 mb-5">
+    <div class='row'>
+      <div class='col-lg-8 offset-lg-2'>
+      <h2 class=' text-center display-4 myh2' > Register<hr> </h2>
+    <form method="post">
+      {% csrf_token %}
+      {{form|crispy}}
+    <input type="submit" value="Register" >
+  </form>
+  </div>
+  </div>
+</div>
+{% endblock %}

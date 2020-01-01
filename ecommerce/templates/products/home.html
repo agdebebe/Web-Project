@@ -1,0 +1,34 @@
+{% extends 'products/index.html' %}
+
+{% block content %}
+
+    <div class="row">
+      {% for product in object_list %}
+
+      <div class="col-md-4 col-sm-12 col-lg-4 mt-5">
+              <div class="card">
+                <img src="{{ product.mainimage.url }}" style="width:100%;" class="card-img-top" alt="{{ product.name }}">
+                  <div class="card-body">
+                    <h5 class="card-title"> {{ product.name }}</h5>
+                    <p class="card-text">{{ product.preview_text|truncatewords:20 }}</p>
+                    <span class="price-product"> Price | {{product.price}}$</span>
+                  </div>
+                  <div class='card-footer text-center'>
+                    <a href="cart/{{ product.slug }}" class="btn btn-success">Add to <i class="fas fa-shopping-cart"></i> </a>
+                    <a href="remove/{{ product.slug }}" class="btn btn-danger">Remove from <i class="fas fa-shopping-cart"></i></a>
+                  </div>
+              </div>
+              
+        </div>
+      {% endfor %}
+      </div>
+          <br />
+          <br />
+        
+
+              <div class="open-button">
+                <form action="/chat" class="inline">
+                  <button class="float-left submit-button">Chat <i class="fa fa-comment"></i></button>
+                </form>
+              </div>
+{% endblock %}

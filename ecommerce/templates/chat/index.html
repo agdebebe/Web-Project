@@ -1,0 +1,35 @@
+<!-- chat/templates/chat/index.html -->
+<!DOCTYPE html>
+<html>
+<!-- # /***************************************************************************************
+# *    Title: <Chat tutorial>
+# *    Author: <9cv9 official>
+# *    Date: <21 september 2018>
+# *    Code version: <html>
+# *    Availability: <https://medium.com/@9cv9official/simple-chat-app-using-django-channel-ed5032b79b9c/>
+# *   Edited by:
+# ***************************************************************************************/ --> 
+<head>
+    <meta charset="utf-8"/>
+    <title>Chat Rooms</title>
+</head>
+<body>
+    What chat room would you like to enter?<br/>
+    <input id="room-name-input" type="text" size="100"/><br/>
+    <input id="room-name-submit" type="button" value="Enter"/>
+
+    <script>
+        document.querySelector('#room-name-input').focus();
+        document.querySelector('#room-name-input').onkeyup = function(e) {
+            if (e.keyCode === 13) {  // enter, return
+                document.querySelector('#room-name-submit').click();
+            }
+        };
+
+        document.querySelector('#room-name-submit').onclick = function(e) {
+            var roomName = document.querySelector('#room-name-input').value;
+            window.location.pathname = '/chat/' + roomName + '/';
+        };
+    </script>
+</body>
+</html>
